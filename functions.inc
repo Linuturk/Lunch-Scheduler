@@ -80,5 +80,6 @@ function read_file($file) {
 function display_schedule($file_array) {
 	$file_reset = $file_array[0];
 	echo "<p>Schedule last reset: $file_reset</p>\n";
+}
 
 ?>
