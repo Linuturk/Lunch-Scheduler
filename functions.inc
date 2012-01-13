@@ -36,12 +36,6 @@ function display_form($lunch_times, $form_name="schedule") {
 	echo "</form>\n";
 }
 
-function display_schedule_row() {
-}
-
-function display_schedule() {
-}
-
 function form_logic($times) {
 	if (!empty($_POST)) {
         	$action = $_POST["submit"];
@@ -60,6 +54,24 @@ function form_logic($times) {
 	} else {
         	display_form($times);
 	}
+}
+
+function append_file($file, $name, $slot) {
+	$fh = fopen($file, 'a') or die("Can't open file.");
+	fwrite($fh, "$slot,$name\n");
+	fclose($fh);
+}
+
+function reset_file($file) {
+	unlink($file);
+	$fh = fopen($file, 'w');
+	$timestamp = date()."\n";
+	fwrite($fh, $timestamp);
+	fclose($fh);
+}
+
+function read_file($file) {
+	$file_array = file($file);
 }
 
 ?>

@@ -3,6 +3,7 @@
 require_once("functions.inc");
 
 $title="Lunch Schedule";
+$schedule_file="temp.txt";
 $times = array(
 	1100 => "11:00 AM",
 	1200 => "12:00 PM",
@@ -13,7 +14,14 @@ $times = array(
 
 html_header($title);
 echo "<h1>lunch.onitato.com</h1>\n";
-form_logic($times);
+
+reset_file($schedule_file);
+append_file($schedule_file, "John", "slot0");
+append_file($schedule_file, "Jane", "slot1");
+append_file($schedule_file, "Sam", "slot2");
+read_file($schedule_file);
+
+//form_logic($times);
 html_footer();
 
 ?>
