@@ -16,7 +16,7 @@ html_header($title);
 echo "<h1>lunch.onitato.com</h1>\n";
 
 if (!empty($_POST)) {
-	echo "You can click a button. Good job big boy.";
+	echo "<h1>You can click a button. Good job big boy.</h1>\n";
 } else {
 	display_schedule($times);
 }
