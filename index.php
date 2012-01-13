@@ -13,7 +13,7 @@ $times = array(
 
 html_header($title);
 echo "<h1>lunch.onitato.com</h1>\n";
-form_logic();
+form_logic($times);
 html_footer();
 
 ?>

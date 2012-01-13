@@ -42,7 +42,7 @@ function display_schedule_row() {
 function display_schedule() {
 }
 
-function form_logic() {
+function form_logic($times) {
 	if (!empty($_POST)) {
         	$action = $_POST["submit"];
         	if ($action == "Add") {
