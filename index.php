@@ -12,8 +12,15 @@ $times = array(
 );
 
 html_header($title);
+
 echo "<h1>lunch.onitato.com</h1>\n";
-display_schedule($times);
+
+if (!empty($_POST)) {
+	echo "You can click a button. Good job big boy.";
+} else {
+	display_schedule($times);
+}
+
 html_footer();
 
 ?>
