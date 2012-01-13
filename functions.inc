@@ -20,42 +20,32 @@ function display_form_row($system_time, $display_time, $slots=3) {
 	$i = 0;
 	echo "<p>$display_time - \n";
 	while ($i < $slots) {
-		echo "<input type='text' name='slot$i-$system_time' />\n";
+		echo "<input type='text' name='timeslot' value='$display_time' />\n";
 		$i++;
 	}
 	echo "</p>\n";
 }
 
+function display_simple_row($times) {
+	echo "Name: <input type='text' name='name' />\n";
+	echo "Time: <select name='time'>\n";
+	foreach ($times as $key => $value) {
+		echo "\t<option value='$key'>$value</option>\n";
+	}
+	echo "</select>\n";
+}
+
 function display_form($lunch_times, $form_name="schedule") {
 	$self_post = $_SERVER['PHP_SELF'];
 	echo "<form method='post' action='$self_post' name='$form_name'>\n";
-	foreach ($lunch_times as $key => $value) {
-		display_form_row($key, $value);
-	}
+	//foreach ($lunch_times as $key => $value) {
+	//	display_form_row($key, $value);
+	//}
+	display_simple_row($lunch_times);
 	echo "<input type='submit' name='submit' value='Add' />\n";
 	echo "<input type='submit' name='submit' value='Clear' />\n";
 	echo "<input type='submit' name='submit' value='View' />\n";
 	echo "</form>\n";
-}
-
-function form_logic($times) {
-	if (!empty($_POST)) {
-        	$action = $_POST["submit"];
-        	if ($action == "Add") {
-                	echo "<p>You want to add yourself?</p>\n";
-                	display_form($times);
-        	} elseif ($action == "Clear") {
-                	echo "<p>Clearing the schedule?</p>\n";
-                	display_form($times);
-        	} elseif ($action == "View") {
-                	echo "<p>Want to see the schedule?</p>\n";
-                	display_form($times);
-        	} else {
-                	echo "<h1>HOW DID I GET HERE?!</h1>\n";
-        	}
-	} else {
-        	display_form($times);
-	}
 }
 
 function append_file($file, $name, $slot) {
