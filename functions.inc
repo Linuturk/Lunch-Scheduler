@@ -65,7 +65,7 @@ function append_file($file, $name, $slot) {
 function reset_file($file) {
 	unlink($file);
 	$fh = fopen($file, 'w');
-	$timestamp = date()."\n";
+	$timestamp = date(r)."\n";
 	fwrite($fh, $timestamp);
 	fclose($fh);
 }
