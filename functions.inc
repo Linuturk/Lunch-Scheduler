@@ -72,6 +72,9 @@ function reset_file($file) {
 
 function read_file($file) {
 	$file_array = file($file);
+	echo "<pre>\n";
+	print_r($file_array);
+	echo "</pre>\n";
 }
 
 ?>
