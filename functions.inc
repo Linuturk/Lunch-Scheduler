@@ -74,17 +74,20 @@ function reset_file($file) {
 
 function read_file($file) {
 	$file_array = file($file);
-	echo "<pre>\n";
-	print_r($file_array);
-	echo "</pre>\n";
 	return $file_array;
 }
 
 function display_schedule($file_array) {
+	$schedule_reset = $file_array["0"];
 	foreach ($file_array as $key => $value) {
-		echo $key;
-		echo $value;
+		if ($key != 0) {
+			$placeholder = explode(",", $value);
+			foreach ($placeholder as $key => $value) {
+				echo "<p>$value is scheduled for $key.</p>\n";
+			}
+		}
 	}
+	echo "<p>Schedule last reset: $schedule_reset</p>\n";
 }
 
 ?>
