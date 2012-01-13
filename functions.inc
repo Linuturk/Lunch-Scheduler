@@ -42,4 +42,24 @@ function display_schedule_row() {
 function display_schedule() {
 }
 
+function form_logic() {
+	if (!empty($_POST)) {
+        	$action = $_POST["submit"];
+        	if ($action == "Add") {
+                	echo "<p>You want to add yourself?</p>\n";
+                	display_form($times);
+        	} elseif ($action == "Clear") {
+                	echo "<p>Clearing the schedule?</p>\n";
+                	display_form($times);
+        	} elseif ($action == "View") {
+                	echo "<p>Want to see the schedule?</p>\n";
+                	display_form($times);
+        	} else {
+                	echo "<h1>HOW DID I GET HERE?!</h1>\n";
+        	}
+	} else {
+        	display_form($times);
+	}
+}
+
 ?>
