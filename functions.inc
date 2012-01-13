@@ -14,7 +14,7 @@ function html_footer() {
 	echo "</html>";
 }
 
-function display_row($system_time, $display_time, $slots=3) {
+function display_form_row($system_time, $display_time, $slots=3) {
 	$i = 0;
 	echo "<p>$display_time - \n";
 	while ($i < $slots) {
@@ -24,14 +24,22 @@ function display_row($system_time, $display_time, $slots=3) {
 	echo "</p>\n";
 }
 
-function display_schedule($lunch_times, $form_name="schedule") {
+function display_form($lunch_times, $form_name="schedule") {
 	$self_post = $_SERVER['PHP_SELF'];
 	echo "<form method='post' action='$self_post' name='$form_name'>\n";
 	foreach ($lunch_times as $key => $value) {
-		display_row($key, $value);
+		display_form_row($key, $value);
 	}
-	echo "<input type='submit' name='submit' />\n";
+	echo "<input type='submit' name='add' value='Add Name' />\n";
+	echo "<input type='submit' name='clear' value='Clear Schedule' />\n";
+	echo "<input type='submit' name='view' value='View Schedule' />\n";
 	echo "</form>\n";
+}
+
+function display_schedule_row() {
+}
+
+function display_schedule() {
 }
 
 ?>

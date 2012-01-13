@@ -17,8 +17,9 @@ echo "<h1>lunch.onitato.com</h1>\n";
 
 if (!empty($_POST)) {
 	echo "<h1>You can click a button. Good job big boy.</h1>\n";
+	display_form($times);
 } else {
-	display_schedule($times);
+	display_form($times);
 }
 
 html_footer();
