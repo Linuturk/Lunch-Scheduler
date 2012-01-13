@@ -25,7 +25,7 @@ function display_row($system_time, $display_time, $slots=3) {
 }
 
 function display_schedule($lunch_times, $form_name="schedule") {
-	echo "<form action='$_SERVER['PHP_SELF']' name='$form_name'>\n";
+	echo "<form action=\"$_SERVER['PHP_SELF']\" name='$form_name'>\n";
 	foreach ($lunch_times as $key => $value) {
 		display_row($key, $value);
 	}
