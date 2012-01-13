@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set("America/Chicago");
+
 function html_header($page_title) {
 	echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n";
 	echo "<html>\n";
