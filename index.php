@@ -24,7 +24,9 @@ append_file($schedule_file, "Jane", "slot1");
 echo "Trying to append to file.\n";
 append_file($schedule_file, "Sam", "slot2");
 echo "Trying to read the file.\n";
-read_file($schedule_file);
+$schedule = read_file($schedule_file);
+
+display_schedule($schedule);
 
 //form_logic($times);
 html_footer();

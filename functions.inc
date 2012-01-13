@@ -77,4 +77,8 @@ function read_file($file) {
 	echo "</pre>\n";
 }
 
+function display_schedule($file_array) {
+	$file_reset = $file_array[0];
+	echo "<p>Schedule last reset: $file_reset</p>\n";
+
 ?>
