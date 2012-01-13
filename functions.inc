@@ -26,11 +26,11 @@ function display_row($system_time, $display_time, $slots=3) {
 
 function display_schedule($lunch_times, $form_name="schedule") {
 	$self_post = $_SERVER['PHP_SELF'];
-	echo "<form action='$self_post' name='$form_name'>\n";
+	echo "<form method='post' action='$self_post' name='$form_name'>\n";
 	foreach ($lunch_times as $key => $value) {
 		display_row($key, $value);
 	}
-	echo "<input type='submit' />\n";
+	echo "<input type='submit' name='submit' />\n";
 	echo "</form>\n";
 }
 
