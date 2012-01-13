@@ -80,8 +80,10 @@ function read_file($file) {
 function display_schedule($file_array) {
 	$schedule_reset = $file_array["0"];
 	foreach ($file_array as $key => $value) {
+	echo "$key and $value\n\n\n";
 		if ($key != 0) {
 			$placeholder = explode(",", $value);
+			print_r($placeholder);
 			foreach ($placeholder as $key => $value) {
 				echo "<p>$value is scheduled for $key.</p>\n";
 			}
