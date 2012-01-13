@@ -83,6 +83,7 @@ function display_schedule($file_array) {
 	foreach ($file_array as $key => $value) {
 		echo $key;
 		echo $value;
+	}
 }
 
 ?>
