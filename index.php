@@ -21,7 +21,7 @@ if (!empty($_POST)) {
 	$action = $_POST["submit"];
 	if ($action == "Add") {
 		$name = $_POST["name"];
-		$time = $_POST["timeslot"];
+		$time = $_POST["time"];
 		echo "<p>Adding $name to the schedule at $time.</p>\n";
 		append_file($schedule_file, $name, $time);
 		display_form($times);
