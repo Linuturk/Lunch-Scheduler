@@ -30,9 +30,9 @@ function display_form($lunch_times, $form_name="schedule") {
 	foreach ($lunch_times as $key => $value) {
 		display_form_row($key, $value);
 	}
-	echo "<input type='submit' name='add' value='Add Name' />\n";
-	echo "<input type='submit' name='clear' value='Clear Schedule' />\n";
-	echo "<input type='submit' name='view' value='View Schedule' />\n";
+	echo "<input type='submit' name='submit' value='Add' />\n";
+	echo "<input type='submit' name='submit' value='Clear' />\n";
+	echo "<input type='submit' name='submit' value='View' />\n";
 	echo "</form>\n";
 }
 

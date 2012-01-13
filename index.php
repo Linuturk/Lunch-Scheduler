@@ -16,13 +16,14 @@ html_header($title);
 echo "<h1>lunch.onitato.com</h1>\n";
 
 if (!empty($_POST)) {
-	if ($_POST["add"]) {
+	$action = $_POST["submit"];
+	if ($action == "Add") {
 		echo "<p>You want to add yourself?</p>\n";
 		display_form($times);
-	} elseif ($_POST["clear"]) {
+	} elseif ($action == "Clear") {
 		echo "<p>Clearing the schedule?</p>\n";
 		display_form($times);
-	} elseif ($_POST["view"]) {
+	} elseif ($action == "View") {
 		echo "<p>Want to see the schedule?</p>\n";
 		display_form($times);
 	} else {
