@@ -16,8 +16,15 @@ html_header($title);
 echo "<h1>lunch.onitato.com</h1>\n";
 
 if (!empty($_POST)) {
-	echo "<h1>You can click a button. Good job big boy.</h1>\n";
-	display_form($times);
+	if ($_POST["add"]) {
+		echo "<p>You want to add yourself?</p>\n";
+	} elseif ($_POST["clear") {
+		echo "<p>Clearing the schedule?</p>\n";
+	} elseif ($_POST("view") {
+		echo "<p>Want to see the schedule?</p>\n";
+	} else {
+		echo "<h1>HOW DID I GET HERE?!</h1>\n";
+	}
 } else {
 	display_form($times);
 }
