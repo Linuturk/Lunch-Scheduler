@@ -77,6 +77,7 @@ function read_file($file) {
 	echo "<pre>\n";
 	print_r($file_array);
 	echo "</pre>\n";
+	return $file_array;
 }
 
 function display_schedule($file_array) {
