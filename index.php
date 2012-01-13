@@ -3,7 +3,7 @@
 require_once("functions.inc");
 
 $title="Lunch Schedule";
-$schedule_file="temp.txt";
+$schedule_file="/tmp/temp.txt";
 $times = array(
 	1100 => "11:00 AM",
 	1200 => "12:00 PM",
