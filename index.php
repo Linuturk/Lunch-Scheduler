@@ -36,7 +36,9 @@ if (!empty($_POST)) {
 			add_to_schedule($name, $time);
 		}
 	} elseif ($action == "Clear") {
-		echo "<p>Clearing the schedule.</p>\n";
+		$name = $_POST["name"];
+		echo "<p>Clearing $name from today's schedule.</p>\n";
+		del_from_schedule($name);
 		display_form($times);
 		show_schedule();
 	} elseif ($action == "View") {
