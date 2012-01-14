@@ -24,35 +24,24 @@ echo "<h1>lunch.onitato.com</h1>\n";
 
 if (!empty($_POST)) {
 	$action = $_POST["submit"];
+	$name = $_POST["name"];
+	$time = $_POST["time"];
 	if ($action == "Add") {
-		$name = $_POST["name"];
-		$time = $_POST["time"];
 		if ($name == "" || $name == null) {
 			echo "Enter a name, fool!";
-			display_form($times);
-			show_schedule();
 		} else {
 			echo "<p>Adding $name to the schedule at $time.</p>\n";
 			add_to_schedule($name, $time);
 		}
-	} elseif ($action == "Clear") {
-		$name = $_POST["name"];
+	if ($action == "Clear") {
 		if ($name == "" || $name == null) {
 			echo "Enter a name, fool!";
-			display_form($times);
-			show_schedule();
 		} else {
 			echo "<p>Clearing $name from today's schedule.</p>\n";
 			del_from_schedule($name);
 		}
-	} elseif ($action == "View") {
-		display_form($times);
-		show_schedule();
-	} else {
-		echo "<h1>HOW DID I GET HERE?!</h1>\n";
-		display_form($times);
-		show_schedule();
-	}
+	display_form($times);
+	show_schedule();
 } else {
 	display_form($times);
 	show_schedule();
