@@ -24,8 +24,8 @@ function html_footer() {
 function display_simple_row($times) {
 	echo "Name: <input type='text' name='name' />\n";
 	echo "Time: <select name='time'>\n";
-	foreach ($times as $key => $value) {
-		echo "\t<option value='$key'>$value</option>\n";
+	foreach ($times as $value) {
+		echo "\t<option value='$value'>$value</option>\n";
 	}
 	echo "</select>\n";
 }
