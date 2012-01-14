@@ -42,7 +42,6 @@ if (!empty($_POST)) {
 		display_form($times);
 		show_schedule();
 	} elseif ($action == "View") {
-		echo "<p>Here is the schedule.</p>\n";
 		display_form($times);
 		show_schedule();
 	} else {
@@ -51,7 +50,6 @@ if (!empty($_POST)) {
 		show_schedule();
 	}
 } else {
-	echo "Let's get started.";
 	display_form($times);
 	show_schedule();
 }
