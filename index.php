@@ -28,11 +28,13 @@ if (!empty($_POST)) {
 		$name = $_POST["name"];
 		$time = $_POST["time"];
 		if ($name == "" || $name == null) {
+			echo "Enter a name, fool!";
+			display_form($times);
+			show_schedule();
+		} else {
 			echo "<p>Adding $name to the schedule at $time.</p>\n";
 			add_to_schedule($name, $time);
 		}
-		display_form($times);
-		show_schedule();
 	} elseif ($action == "Clear") {
 		echo "<p>Clearing the schedule.</p>\n";
 		display_form($times);
