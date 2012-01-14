@@ -33,6 +33,7 @@ if (!empty($_POST)) {
 			echo "<p>Adding $name to the schedule at $time.</p>\n";
 			add_to_schedule($name, $time);
 		}
+	}
 	if ($action == "Clear") {
 		if ($name == "" || $name == null) {
 			echo "Enter a name, fool!";
@@ -40,6 +41,7 @@ if (!empty($_POST)) {
 			echo "<p>Clearing $name from today's schedule.</p>\n";
 			del_from_schedule($name);
 		}
+	}
 	display_form($times);
 	show_schedule();
 } else {
