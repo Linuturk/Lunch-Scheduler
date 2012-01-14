@@ -51,7 +51,7 @@ function del_from_schedule($name) {
 function show_schedule() {
 	$result = mysql_query("SELECT (name, lunchslot, date, timestamp) FROM schedule WHERE date=CURDATE() ORDER BY lunchslot") or die(mysql_error());
 	while ($row = mysql_fetch_array($result)) {
-		echo "<p>$row['name'] - $row['lunchslot'] - $row['date']</p>\n";
+		//echo "<p>$row['name'] - $row['lunchslot'] - $row['date']</p>\n";
 		echo "<!-- Entered at: $row['timestamp'] -->\n";
 	}
 }
