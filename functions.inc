@@ -41,7 +41,7 @@ function display_form($lunch_times, $form_name="schedule") {
 }
 
 function add_to_schedule($name, $time) {
-	if ($name = '') {
+	if ($name = '' or $name = null) {
 		echo "You didn't enter a name fool.";
 	} else {
 		$query = "INSERT INTO schedule(name, lunchslot, date, timestamp) VALUES('$name', '$time', CURDATE(), NOW())";
