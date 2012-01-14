@@ -27,8 +27,10 @@ if (!empty($_POST)) {
 	if ($action == "Add") {
 		$name = $_POST["name"];
 		$time = $_POST["time"];
-		echo "<p>Adding $name to the schedule at $time.</p>\n";
-		add_to_schedule($name, $time);
+		if ($name == "" || $name == null) {
+			echo "<p>Adding $name to the schedule at $time.</p>\n";
+			add_to_schedule($name, $time);
+		}
 		display_form($times);
 		show_schedule();
 	} elseif ($action == "Clear") {
