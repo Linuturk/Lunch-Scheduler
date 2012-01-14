@@ -41,8 +41,8 @@ function display_form($lunch_times, $form_name="schedule") {
 }
 
 function add_to_schedule($name, $time) {
-	$query = "INSERT INTO schedule(name, lunchslot, date, timestamp) VALUES('$name', '$time', CURDATE(), CURTIME())";
-	echo "<!-- $query -->";
+	$query = "INSERT INTO schedule(name, lunchslot, date, timestamp) VALUES('$name', '$time', CURDATE(), NOW())";
+	echo "<!-- $query -->\n";
 	mysql_query($query) or die(mysql_error());
 }
 
