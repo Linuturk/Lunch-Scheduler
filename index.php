@@ -29,19 +29,24 @@ if (!empty($_POST)) {
 		$time = $_POST["time"];
 		echo "<p>Adding $name to the schedule at $time.</p>\n";
 		display_form($times);
+		show_schedule();
 	} elseif ($action == "Clear") {
 		echo "<p>Clearing the schedule.</p>\n";
 		display_form($times);
+		show_schedule();
 	} elseif ($action == "View") {
 		echo "<p>Here is the schedule.</p>\n";
 		display_form($times);
+		show_schedule();
 	} else {
 		echo "<h1>HOW DID I GET HERE?!</h1>\n";
 		display_form($times);
+		show_schedule();
 	}
 } else {
 	echo "Let's get started.";
 	display_form($times);
+	show_schedule();
 }
 
 html_footer();

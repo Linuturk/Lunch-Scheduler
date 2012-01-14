@@ -40,4 +40,19 @@ function display_form($lunch_times, $form_name="schedule") {
 	echo "</form>\n";
 }
 
+function add_to_schedule($name, $time) {
+	mysql_query("INSERT INTO schedule(name, lunchslot, date, timestamp) VALUES($name, $time, CURDATE(), CURTIME()") or die(mysql_error());
+}
+
+function del_from_schedule($name) {
+	mysql_query("DELETE FROM schedule WHERE date=CURDATE() AND name='$name'") or die(mysql_error());
+}
+
+function show_schedule() {
+	$result = mysql_query("SELECT (name, lunchslot, date) FROM schedule WHERE date=CURDATE() ORDER BY lunchslot") or die(mysql_error());
+	while ($row = mysql_fetch_array($result)) {
+		echo "<p>$row['name'] - $row['lunchslot'] - $row['date']</p>\n";
+	}
+}
+
 ?>
