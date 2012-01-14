@@ -37,10 +37,14 @@ if (!empty($_POST)) {
 		}
 	} elseif ($action == "Clear") {
 		$name = $_POST["name"];
-		echo "<p>Clearing $name from today's schedule.</p>\n";
-		del_from_schedule($name);
-		display_form($times);
-		show_schedule();
+		if ($name == "" || $name == null) {
+			echo "Enter a name, fool!";
+			display_form($times);
+			show_schedule();
+		} else {
+			echo "<p>Clearing $name from today's schedule.</p>\n";
+			del_from_schedule($name);
+		}
 	} elseif ($action == "View") {
 		display_form($times);
 		show_schedule();
