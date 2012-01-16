@@ -1,2 +1,6 @@
-Deny from All
-Allow from 67.11.28.247
+AuthUserFile /var/www/vhosts/.htpasswd
+AuthGroupFile /dev/null
+AuthName EnterPassword
+AuthType Basic
+
+require user mclunch
