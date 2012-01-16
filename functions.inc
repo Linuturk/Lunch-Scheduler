@@ -57,6 +57,7 @@ function show_schedule($lunchslots, $slots=3) {
 	$i = 0;
 	while ($i < $slots) {
 		echo "\t<td>&nbsp;</td>\n";
+		$i++;
 	}
 	echo "</tr>\n";
 	foreach ($lunchslots as $value) {
