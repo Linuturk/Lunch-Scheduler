@@ -51,7 +51,7 @@ function del_from_schedule($name) {
 }
 
 function show_schedule($lunchslots, $slots=3) {
-	echo "<table>\n";
+	echo "<table border='1'>\n";
 	echo "<tr>\n";
 	echo "\t<td>Times</td>\n";
 	$i = 0;
@@ -69,7 +69,7 @@ function show_schedule($lunchslots, $slots=3) {
 function show_lunchslot($slot) {
 	$query = "SELECT name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
 	$result = mysql_query($query) or die(mysql_error());
-	echo "<tr><td>$slot</td>\n";
+	echo "<tr>\n\t<td>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
 		echo "\t<td>".$row['name']."</td>\n";
 	}
