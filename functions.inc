@@ -50,13 +50,29 @@ function del_from_schedule($name) {
 	mysql_query($query) or die(mysql_error());
 }
 
-function show_schedule() {
-	$query = "SELECT name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() ORDER BY lunchslot";
-	$result = mysql_query($query) or die(mysql_error());
-	while ($row = mysql_fetch_array($result)) {
-		echo "<p>".$row['name']." - ".$row['lunchslot']." - ".$row['date']."</p>\n";
-		echo "<!-- Entered at: ".$row['timestamp']." -->\n";
+function show_schedule($lunchslots, $slots=3) {
+	echo "<table>\n";
+	echo "<tr>\n";
+	echo "\t<td>Times</td>\n";
+	$i = 0;
+	while ($i < $slots) {
+		echo "\t<td>&nbsp;</td>\n";
 	}
+	echo "</tr>\n";
+	foreach ($lunchslots as $value) {
+		show_lunchslot($value);
+	}
+	echo "</table>\n";
+}
+
+function show_lunchslot($slot) {
+	$query = "SELECT name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
+	$result = mysql_query($query) or die(mysql_error());
+	echo "<tr><td>$slot</td>\n";
+	while ($row = mysql_fetch_array($result)) {
+		echo "\t<td>".$row['name']."</td>\n";
+	}
+	echo "</tr>\n";
 }
 
 ?>

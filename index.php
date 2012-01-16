@@ -43,10 +43,10 @@ if (!empty($_POST)) {
 		}
 	}
 	display_form($times);
-	show_schedule();
+	show_schedule($times);
 } else {
 	display_form($times);
-	show_schedule();
+	show_schedule($times);
 }
 
 html_footer();
