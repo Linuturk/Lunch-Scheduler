@@ -66,12 +66,18 @@ function show_schedule($lunchslots, $slots=3) {
 	echo "</table>\n";
 }
 
-function show_lunchslot($slot) {
+function show_lunchslot($slot, $slots=3) {
 	$query = "SELECT name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
 	$result = mysql_query($query) or die(mysql_error());
 	echo "<tr>\n\t<td>$slot</td>\n";
-	while ($row = mysql_fetch_array($result)) {
-		echo "\t<td>".$row['name']."</td>\n";
+	if (!$result) {
+		while ($i < $slots) {
+			echo "\t<td>&nbps;</td>\n";
+		}
+	} else {
+		while ($row = mysql_fetch_array($result)) {
+			echo "\t<td>".$row['name']."</td>\n";
+		}
 	}
 	echo "</tr>\n";
 }
