@@ -71,8 +71,10 @@ function show_lunchslot($slot, $slots=3) {
 	$result = mysql_query($query) or die(mysql_error());
 	echo "<tr>\n\t<td>$slot</td>\n";
 	if ($result == FALSE) {
+		$i = 0;
 		while ($i < $slots) {
 			echo "\t<td>&nbps;</td>\n";
+			$i++;
 		}
 	} else {
 		while ($row = mysql_fetch_array($result)) {
