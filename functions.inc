@@ -41,11 +41,13 @@ function display_form($lunch_times, $form_name="schedule") {
 }
 
 function add_to_schedule($name, $time) {
+	$name = sanitize($name);
 	$query = "INSERT INTO schedule(name, lunchslot, date, timestamp) VALUES('$name', '$time', CURDATE(), NOW())";
 	mysql_query($query) or die(mysql_error());
 }
 
 function del_from_schedule($name) {
+	$name = sanitize($name);
 	$query = "DELETE FROM schedule WHERE date=CURDATE() AND name='$name'";
 	mysql_query($query) or die(mysql_error());
 }
@@ -74,6 +76,12 @@ function show_lunchslot($slot, $slots=3) {
 		echo "\t<td>".$row['name']."</td>\n";
 	}
 	echo "</tr>\n";
+}
+
+function sanitize($string) {
+	$clean = htmlentities($string);
+	$clean = mysql_real_escape_string($clean);
+	return $clean;
 }
 
 ?>
