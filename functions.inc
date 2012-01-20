@@ -74,6 +74,7 @@ function show_lunchslot($slot, $slots=3) {
 	echo "<tr>\n\t<td>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
 		echo "\t<td>".$row['name']."</td>\n";
+		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
 	echo "</tr>\n";
 }

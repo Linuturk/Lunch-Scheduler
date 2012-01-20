@@ -1,6 +1,0 @@
-AuthUserFile /var/www/vhosts/.htpasswd
-AuthGroupFile /dev/null
-AuthName EnterPassword
-AuthType Basic
-
-require user mclunch
