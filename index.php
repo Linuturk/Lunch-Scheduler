@@ -11,11 +11,13 @@ database($db_host, $db_database, $db_user, $db_pass);
 
 $title="Lunch Schedule";
 $times = array(
+	1000 => "10:00 AM",
 	1100 => "11:00 AM",
 	1200 => "12:00 PM",
 	1300 => "1:00 PM",
 	1400 => "2:00 PM",
 	1500 => "3:00 PM"
+	1600 => "4:00 PM"
 );
 
 html_header($title);
