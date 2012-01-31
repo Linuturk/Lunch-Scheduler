@@ -1,11 +1,7 @@
 <?php
 
 require_once("functions.inc");
-
-$db_host = "localhost";
-$db_user = "lunch";
-$db_pass = "lunchpassword";
-$db_database = "lunch";
+require_once("database.inc");
 
 database($db_host, $db_database, $db_user, $db_pass);
 
