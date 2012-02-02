@@ -28,6 +28,7 @@ if (!empty($_POST)) {
 		if ($name == "" || $name == null) {
 			echo "Enter a name, fool!";
 		} else {
+			$name = sanitize($name);
 			echo "<p>Adding $name to the schedule at $time.</p>\n";
 			add_to_schedule($name, $time);
 		}

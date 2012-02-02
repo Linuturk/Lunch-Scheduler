@@ -38,6 +38,7 @@ function display_form($lunch_times, $form_name="schedule") {
 	echo "<input type='submit' name='submit' value='Clear' />\n";
 	echo "<input type='submit' name='submit' value='View' />\n";
 	echo "</form>\n";
+	echo "<p>Soft limit of 2 per time slot.</p>\n";
 }
 
 function add_to_schedule($name, $time) {
@@ -69,11 +70,12 @@ function show_schedule($lunchslots, $slots=3) {
 }
 
 function show_lunchslot($slot, $slots=3) {
-	$query = "SELECT name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
+	$query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
 	$result = mysql_query($query) or die(mysql_error());
 	echo "<tr>\n\t<td>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
 		echo "\t<td>".$row['name']."</td>\n";
+		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
 	echo "</tr>\n";
