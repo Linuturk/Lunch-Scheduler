@@ -56,7 +56,7 @@ function del_from_schedule($name) {
 function show_schedule($lunchslots, $slots=3) {
 	echo "<table border='1'>\n";
 	echo "<tr>\n";
-	echo "\t<td>Times</td>\n";
+	echo "\t<td>Times (CST)</td>\n";
 	$i = 0;
 	while ($i < $slots) {
 		echo "\t<td>&nbsp;</td>\n";
