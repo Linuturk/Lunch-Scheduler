@@ -50,7 +50,7 @@ if (!empty($_POST)) {
 
 show_schedule($times);
 
-echo "<p>Soft limit of 2 per time slot.</p>\n";
+echo "<p class='center'>Soft limit of 2 per time slot.</p>\n";
 
 // Close out the HTML.
 html_footer();

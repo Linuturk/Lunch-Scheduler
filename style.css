@@ -3,6 +3,15 @@
  * Trying to make things a little easier on the eyes
  */
 
+h1 {
+	text-align:center;
+}
+p.center {
+	text-align:center;
+}
+input.center {
+	text-align:center;
+}
 table {
 	border-collapse:collapse;
 }

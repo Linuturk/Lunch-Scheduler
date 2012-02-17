@@ -70,14 +70,14 @@ function show_schedule($lunchslots, $slots=3) {
 		echo "\t\t<option value='$value'>$value</option>\n";
 	}
 	echo "\t</select></td>\n";
-	echo "\t<td><input type='submit' name='submit' value='Add' /></td>\n";
+	echo "\t<td><input class='center' type='submit' name='submit' value='Add' /></td>\n";
 	echo "</tr>\n";
 	foreach ($lunchslots as $value) {
 		show_lunchslot($value, $slots);
 	}
 	echo "</table>\n";
-	echo "<input id='submit' type='submit' name='submit' value='Remove' />\n";
-	echo "<input id='submit' type='submit' name='submit' value='Refresh' />\n";
+	echo "<input id='submit' class='center' type='submit' name='submit' value='Remove' />\n";
+	echo "<input id='submit' class='center' type='submit' name='submit' value='Refresh' />\n";
 	echo "</form>\n";
 }
 
