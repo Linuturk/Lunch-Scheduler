@@ -1,0 +1,11 @@
+/*
+ * Just your everyday style sheet.
+ * Trying to make things a little easier on the eyes
+ */
+
+table {
+	border-collapse:collapse;
+}
+table, td, th {
+	border:1px solid black;
+}

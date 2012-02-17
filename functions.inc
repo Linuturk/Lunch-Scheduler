@@ -20,6 +20,7 @@ function html_header($page_title) {
 	echo "<html>\n";
 	echo "<head>\n";
 	echo "<title>$page_title</title>\n";
+	echo "<link rel='stylesheet' type='text/css' href='style.css' />\n";
 	echo "<meta http-equiv='refresh' content='60' url='http://lunch.cldsrvr.com/' >\n";
 	echo "</head>\n";
 	echo "<body>\n";

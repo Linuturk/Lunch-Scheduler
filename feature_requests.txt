@@ -1,5 +1,2 @@
  - Campfire Messages
- - Auto Refresh
- - Refresh instead of View button
- - Remove individual entries based on ID
  - Make things pretty
