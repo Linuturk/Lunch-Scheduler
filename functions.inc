@@ -76,8 +76,8 @@ function show_schedule($lunchslots, $slots=3) {
 		show_lunchslot($value);
 	}
 	echo "</table>\n";
-	echo "<input type='submit' name='submit' value='Remove' />\n";
-	echo "<input type='submit' name='submit' value='Refresh' />\n";
+	echo "<input id='submit' type='submit' name='submit' value='Remove' />\n";
+	echo "<input id='submit' type='submit' name='submit' value='Refresh' />\n";
 	echo "</form>\n";
 }
 
@@ -90,11 +90,16 @@ function show_lunchslot($slot) {
 	*/
 	$query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
 	$result = mysql_query($query) or die(mysql_error());
+	$num_rows = mysql_num_rows($result);
 	echo "<tr>\n\t<td class='label'>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
 		echo "\t<td><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".$row['name']."</td>\n";
 		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
+	}
+	while ($num_rows > 0) {
+		echo "\t<td>&nbsp;</td>\n";
+		$num_rows = $num_rows++
 	}
 	echo "</tr>\n";
 }
