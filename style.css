@@ -5,7 +5,13 @@
 
 table {
 	border-collapse:collapse;
+	width:50%;
 }
 table, td, th {
 	border:1px solid black;
+	padding:10px;
+}
+td.label {
+	text-align:right;
+	font-weight:bold;
 }
