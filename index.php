@@ -36,7 +36,7 @@ if (!empty($_POST)) {
 	if ($action == "Add") {
 		// Make sure they entered something.
 		if ($name == "" || $name == null) {
-			echo "Enter a name, fool!";
+			echo "<p class='center'>Enter a name, fool!</p>\n";
 		} else {
 			// Add to the database.
 			$name = sanitize($name);
