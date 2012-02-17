@@ -15,14 +15,14 @@ table, td, th {
 	padding:5px;
 }
 td.data {
-	width:50px;
+	width:80px;
 }
 td.label {
 	text-align:right;
 	font-weight:bold;
 }
 #name {
-	width:50px;
+	width:75px;
 }
 #submit {
 	padding:5px;
