@@ -29,6 +29,7 @@ echo "<h1>lunch.cldsrvr.com</h1>\n";
 if (!empty($_POST)) {
 	// Pull the values from POST
 	$action = $_POST["submit"];
+	$id = $_POST["clear"];
 	$name = $_POST["name"];
 	$time = $_POST["time"];
 	// If we are adding someone to the schedule . . . 
@@ -42,9 +43,9 @@ if (!empty($_POST)) {
 			echo "<p>Adding $name to the schedule at $time.</p>\n";
 			add_to_schedule($name, $time);
 		}
-	} else {
+	} elseif ($action == "Remove") {
 		// Clear from the database for the current day.
-		del_from_schedule($action);
+		del_from_schedule($id);
 		}
 }
 

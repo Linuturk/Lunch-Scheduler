@@ -85,6 +85,8 @@ function show_schedule($lunchslots, $slots=3) {
 			- A specially formatted array with the lunch slots you want to show in the schedule.
 			- A formatting option for the number of slots the schedule should expect. Defaults to 3.
 	*/
+	$self_post = $_SERVER['PHP_SELF'];
+	echo "<form method='post' action='$self_post' name='schedule'>\n";
 	echo "<table border='1'>\n";
 	echo "<tr>\n";
 	echo "\t<td>Times (CST)</td>\n";
@@ -98,6 +100,8 @@ function show_schedule($lunchslots, $slots=3) {
 		show_lunchslot($value);
 	}
 	echo "</table>\n";
+	echo "<input type='submit' name='submit' value='Remove' />\n";
+	echo "</form>\n";
 }
 
 function show_lunchslot($slot) {
@@ -111,7 +115,7 @@ function show_lunchslot($slot) {
 	$result = mysql_query($query) or die(mysql_error());
 	echo "<tr>\n\t<td>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
-		echo "\t<td>".$row['name']."&nbsp;<input type='radio' name='clear' value='".$row['id']."' /></td>\n";
+		echo "\t<td><input type='radio' name='clear' value='".$row['id']."'&nbsp;".$row['name']." /></td>\n";
 		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
