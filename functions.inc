@@ -100,7 +100,7 @@ function show_lunchslot($slot, $slots) {
 	}
 	while ($num_rows < $slots) {
 		echo "\t<td>&nbsp;</td>\n";
-		$num_rows = $num_rows++;
+		$num_rows++;
 	}
 	echo "</tr>\n";
 }
