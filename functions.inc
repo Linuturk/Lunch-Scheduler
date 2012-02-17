@@ -114,7 +114,7 @@ function show_lunchslot($slot, $slots=3) {
 	$result = mysql_query($query) or die(mysql_error());
 	echo "<tr>\n\t<td>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
-		echo "\t<td>".$row['name']."</td>\n";
+		echo "\t<td>".$row['name']."&nbsp;<input type='submit' name='".$row['id']."' value='X' /></td>\n";
 		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
