@@ -73,7 +73,7 @@ function show_schedule($lunchslots, $slots=3) {
 	echo "\t<td><input type='submit' name='submit' value='Add' /></td>\n";
 	echo "</tr>\n";
 	foreach ($lunchslots as $value) {
-		show_lunchslot($value);
+		show_lunchslot($value, $slots);
 	}
 	echo "</table>\n";
 	echo "<input id='submit' type='submit' name='submit' value='Remove' />\n";
@@ -81,12 +81,13 @@ function show_schedule($lunchslots, $slots=3) {
 	echo "</form>\n";
 }
 
-function show_lunchslot($slot) {
+function show_lunchslot($slot, $slots) {
 	/*
 		This function pulls the data out of the database for a particular lunch slot, and displays a table
 		cell with this information.
 		Takes two arguments. One is the slot and the second is the number of slots the system is expecting.
 			- The slot is in a pretty format, according to a specially formatted array.
+			- Slots controls how many table columns are expected.
 	*/
 	$query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
 	$result = mysql_query($query) or die(mysql_error());
@@ -97,9 +98,9 @@ function show_lunchslot($slot) {
 		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
-	while ($num_rows > 0) {
+	while ($num_rows < $slots) {
 		echo "\t<td>&nbsp;</td>\n";
-		$num_rows = $num_rows--;
+		$num_rows = $num_rows++;
 	}
 	echo "</tr>\n";
 }
