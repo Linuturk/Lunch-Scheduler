@@ -9,9 +9,6 @@ h1 {
 p.center {
 	text-align:center;
 }
-input.center {
-	text-align:center;
-}
 table {
 	border-collapse:collapse;
 }
@@ -29,6 +26,9 @@ td.data {
 td.label {
 	text-align:right;
 	font-weight:bold;
+}
+td.center {
+	text-align:center;
 }
 #name {
 	width:75px;
