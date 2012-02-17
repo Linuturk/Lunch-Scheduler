@@ -61,7 +61,7 @@ function show_schedule($lunchslots, $slots=3) {
 	*/
 	$self_post = $_SERVER['PHP_SELF'];
 	echo "<form method='post' action='$self_post' name='schedule'>\n";
-	echo "<table border='1'>\n";
+	echo "<table class='center'>\n";
 	echo "<tr>\n";
 	echo "\t<td class='label'>Times (CST)</td>\n";
 	echo "\t<td><input id='name' type='text' name='name' /></td>\n";
@@ -94,12 +94,12 @@ function show_lunchslot($slot, $slots) {
 	$num_rows = mysql_num_rows($result);
 	echo "<tr>\n\t<td class='label'>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
-		echo "\t<td><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".$row['name']."</td>\n";
+		echo "\t<td class='data'><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".$row['name']."</td>\n";
 		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
 	while ($num_rows < $slots) {
-		echo "\t<td>&nbsp;</td>\n";
+		echo "\t<td class='data'>&nbsp;</td>\n";
 		$num_rows++;
 	}
 	echo "</tr>\n";

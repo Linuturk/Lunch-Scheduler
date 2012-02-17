@@ -6,16 +6,23 @@
 table {
 	border-collapse:collapse;
 }
+table.center {
+	margin-left:auto;
+	margin-right:auto;
+}
 table, td, th {
 	border:1px solid black;
 	padding:5px;
+}
+td.data {
+	width:50px;
 }
 td.label {
 	text-align:right;
 	font-weight:bold;
 }
 #name {
-	width:100px;
+	width:50px;
 }
 #submit {
 	padding:5px;
