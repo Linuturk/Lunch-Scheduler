@@ -70,13 +70,12 @@ function add_to_schedule($name, $time) {
 	mysql_query($query) or die(mysql_error());
 }
 
-function del_from_schedule($name) {
+function del_from_schedule($id) {
 	/*
 		Take a specific string, and remove it from the database for the current day.
 		This removes all entries from the database, effectively clearing the schedule of that name.
 	*/
-	$name = sanitize($name);
-	$query = "DELETE FROM schedule WHERE date=CURDATE() AND name='$name'";
+	$query = "DELETE FROM schedule WHERE date=CURDATE() AND id='$id'";
 	mysql_query($query) or die(mysql_error());
 }
 

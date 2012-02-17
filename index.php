@@ -42,26 +42,14 @@ if (!empty($_POST)) {
 			echo "<p>Adding $name to the schedule at $time.</p>\n";
 			add_to_schedule($name, $time);
 		}
-	}
-	// If we are clearing someone from the schedule . . . 
-	if ($action == "Clear") {
-		// Make sure they entered something.
-		if ($name == "" || $name == null) {
-			echo "Enter a name, fool!";
-		} else {
-			// Clear from the database for the current day.
-			echo "<p>Clearing $name from today's schedule.</p>\n";
-			del_from_schedule($name);
+	} else {
+		// Clear from the database for the current day.
+		del_from_schedule($action);
 		}
-	}
-	// No matter what, show the form and schedule.
-	display_form($times);
-	show_schedule($times);
-// If the page hasn't been posted yet . . . 
-} else {
-	display_form($times);
-	show_schedule($times);
 }
+
+display_form($times);
+show_schedule($times);
 
 // Close out the HTML.
 html_footer();
