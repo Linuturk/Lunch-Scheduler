@@ -90,7 +90,7 @@ function show_schedule($lunchslots, $slots=3) {
 	echo "<form method='post' action='$self_post' name='schedule'>\n";
 	echo "<table border='1'>\n";
 	echo "<tr>\n";
-	echo "\t<td>Times (CST)</td>\n";
+	echo "\t<td class='label'>Times (CST)</td>\n";
 	$i = 0;
 	while ($i < $slots) {
 		echo "\t<td>&nbsp;</td>\n";
@@ -115,7 +115,7 @@ function show_lunchslot($slot) {
 	*/
 	$query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
 	$result = mysql_query($query) or die(mysql_error());
-	echo "<tr>\n\t<td>$slot</td>\n";
+	echo "<tr>\n\t<td class='label'>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
 		echo "\t<td><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".$row['name']."</td>\n";
 		echo "\t<!-- ".$row['id']." -->\n";
