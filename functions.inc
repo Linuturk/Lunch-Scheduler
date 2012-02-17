@@ -45,7 +45,7 @@ function display_simple_row($times) {
 	echo "</select>\n";
 }
 
-function display_form($lunch_times, $form_name="schedule") {
+function display_form($lunch_times, $form_name="form") {
 	/*
 		Show the entire form.
 		Take the lunch slots and the form name as an argument.
@@ -86,7 +86,7 @@ function show_schedule($lunchslots, $slots=3) {
 			- A formatting option for the number of slots the schedule should expect. Defaults to 3.
 	*/
         $self_post = $_SERVER['PHP_SELF'];
-        echo "<form method='post' action='$self_post' name='$form_name'>\n";
+        echo "<form method='post' action='$self_post' name='schedule'>\n";
 	echo "<table border='1'>\n";
 	echo "<tr>\n";
 	echo "\t<td>Times (CST)</td>\n";
