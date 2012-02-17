@@ -40,7 +40,6 @@ if (!empty($_POST)) {
 		} else {
 			// Add to the database.
 			$name = sanitize($name);
-			echo "<p>Adding $name to the schedule at $time.</p>\n";
 			add_to_schedule($name, $time);
 		}
 	} elseif ($action == "Remove") {
@@ -51,6 +50,8 @@ if (!empty($_POST)) {
 
 display_form($times);
 show_schedule($times);
+
+echo "<p>Soft limit of 2 per time slot.</p>\n";
 
 // Close out the HTML.
 html_footer();

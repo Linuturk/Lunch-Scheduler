@@ -58,7 +58,6 @@ function display_form($lunch_times, $form_name="form") {
 	display_simple_row($lunch_times);
 	echo "<input type='submit' name='submit' value='Add' />\n";
 	echo "</form>\n";
-	echo "<p>Soft limit of 2 per time slot.</p>\n";
 }
 
 function add_to_schedule($name, $time) {
