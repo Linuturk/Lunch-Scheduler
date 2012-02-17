@@ -20,6 +20,7 @@ function html_header($page_title) {
 	echo "<html>\n";
 	echo "<head>\n";
 	echo "<title>$page_title</title>\n";
+	echo "<meta http-equiv='refresh' content='60' url='http://lunch.cldsrvr.com/' >";
 	echo "</head>\n";
 	echo "<body>\n";
 }
@@ -55,7 +56,6 @@ function display_form($lunch_times, $form_name="form") {
 	echo "<form method='post' action='$self_post' name='$form_name'>\n";
 	display_simple_row($lunch_times);
 	echo "<input type='submit' name='submit' value='Add' />\n";
-	echo "<input type='submit' name='submit' value='View' />\n";
 	echo "</form>\n";
 	echo "<p>Soft limit of 2 per time slot.</p>\n";
 }
@@ -101,6 +101,7 @@ function show_schedule($lunchslots, $slots=3) {
 	}
 	echo "</table>\n";
 	echo "<input type='submit' name='submit' value='Remove' />\n";
+	echo "<input type='submit' name='submit' value='Refresh' />\n";
 	echo "</form>\n";
 }
 
