@@ -64,13 +64,13 @@ function show_schedule($lunchslots, $slots=3) {
 	echo "<table border='1'>\n";
 	echo "<tr>\n";
 	echo "\t<td class='label'>Times (CST)</td>\n";
-	echo "\t<td><input type='submit' name='submit' value='Add' /></td>\n";
 	echo "\t<td>Name: <input type='text' name='name' /></td>\n";
-	echo "\t<td>Time: <select name='time'></td>\n";
+	echo "\t<td>Time: <select name='time'>\n";
 	foreach ($lunchslots as $value) {
 		echo "\t\t<option value='$value'>$value</option>\n";
 	}
-	echo "\t</select>\n";
+	echo "\t</select></td>\n";
+	echo "\t<td><input type='submit' name='submit' value='Add' /></td>\n";
 	echo "</tr>\n";
 	foreach ($lunchslots as $value) {
 		show_lunchslot($value);
