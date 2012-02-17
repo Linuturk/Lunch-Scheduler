@@ -34,32 +34,6 @@ function html_footer() {
 	echo "</html>";
 }
 
-function display_simple_row($times) {
-	/*
-		Show the HTML inputs to add a name to schedule.
-		This takes a specially formatted array to give us the various time slot options.
-	*/
-	echo "Name: <input type='text' name='name' />\n";
-	echo "Time: <select name='time'>\n";
-	foreach ($times as $value) {
-		echo "\t<option value='$value'>$value</option>\n";
-	}
-	echo "</select>\n";
-}
-
-function display_form($lunch_times, $form_name="form") {
-	/*
-		Show the entire form.
-		Take the lunch slots and the form name as an argument.
-		The form name defaults to schedule.
-	*/
-	$self_post = $_SERVER['PHP_SELF'];
-	echo "<form method='post' action='$self_post' name='$form_name'>\n";
-	display_simple_row($lunch_times);
-	echo "<input type='submit' name='submit' value='Add' />\n";
-	echo "</form>\n";
-}
-
 function add_to_schedule($name, $time) {
 	/*
 		Take a name and time, sanitize the data, and insert into the database.
@@ -90,11 +64,13 @@ function show_schedule($lunchslots, $slots=3) {
 	echo "<table border='1'>\n";
 	echo "<tr>\n";
 	echo "\t<td class='label'>Times (CST)</td>\n";
-	$i = 0;
-	while ($i < $slots) {
-		echo "\t<td>&nbsp;</td>\n";
-		$i++;
+	echo "\t<td><input type='submit' name='submit' value='Add' /></td>\n";
+	echo "\t<td>Name: <input type='text' name='name' /></td>\n";
+	echo "\t<td>Time: <select name='time'></td>\n";
+	foreach ($lunchslots as $value) {
+		echo "\t\t<option value='$value'>$value</option>\n";
 	}
+	echo "\t</select>\n";
 	echo "</tr>\n";
 	foreach ($lunchslots as $value) {
 		show_lunchslot($value);

@@ -49,7 +49,6 @@ if (!empty($_POST)) {
 }
 
 show_schedule($times);
-display_form($times);
 
 echo "<p>Soft limit of 2 per time slot.</p>\n";
 
