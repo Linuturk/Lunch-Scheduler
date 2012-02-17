@@ -115,7 +115,7 @@ function show_lunchslot($slot) {
 	$result = mysql_query($query) or die(mysql_error());
 	echo "<tr>\n\t<td>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
-		echo "\t<td><input type='radio' name='clear' value='".$row['id']."'&nbsp;".$row['name']." /></td>\n";
+		echo "\t<td><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".$row['name']."</td>\n";
 		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
