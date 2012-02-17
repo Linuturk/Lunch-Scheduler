@@ -14,3 +14,6 @@ td.label {
 	text-align:right;
 	font-weight:bold;
 }
+#name {
+	width:100px;
+}

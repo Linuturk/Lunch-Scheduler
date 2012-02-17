@@ -64,8 +64,8 @@ function show_schedule($lunchslots, $slots=3) {
 	echo "<table border='1'>\n";
 	echo "<tr>\n";
 	echo "\t<td class='label'>Times (CST)</td>\n";
-	echo "\t<td>Name: <input type='text' name='name' /></td>\n";
-	echo "\t<td>Time: <select name='time'>\n";
+	echo "\t<td><input id='name' type='text' name='name' /></td>\n";
+	echo "\t<td><select name='time'>\n";
 	foreach ($lunchslots as $value) {
 		echo "\t\t<option value='$value'>$value</option>\n";
 	}
