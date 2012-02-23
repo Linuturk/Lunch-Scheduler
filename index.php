@@ -52,6 +52,9 @@ show_schedule($times);
 
 echo "<p class='center'>Soft limit of 2 per time slot.</p>\n";
 
+// Vendor Schedule
+require_once('vendor.inc');
+
 // Close out the HTML.
 html_footer();
 
