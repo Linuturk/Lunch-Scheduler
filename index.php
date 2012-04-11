@@ -50,7 +50,7 @@ if (!empty($_POST)) {
 
 show_schedule($times);
 
-echo "<p class='center'>3 per time slot please.</p>\n";
+//echo "<p class='center'>3 per time slot please.</p>\n";
 
 // Vendor Schedule
 require_once('vendor.inc');

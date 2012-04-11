@@ -52,7 +52,7 @@ function del_from_schedule($id) {
 	mysql_query($query) or die(mysql_error());
 }
 
-function show_schedule($lunchslots, $slots=3) {
+function show_schedule($lunchslots, $slots=4) {
 	/*
 		Show the current schedule.
 		Takes two arguments:
