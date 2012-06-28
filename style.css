@@ -26,6 +26,9 @@ table, td, th {
 td.data {
 	width:80px;
 }
+td.vendor {
+	width:160px;
+}
 td.label {
 	text-align:right;
 	font-weight:bold;

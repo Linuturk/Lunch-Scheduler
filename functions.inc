@@ -30,7 +30,7 @@ function html_footer() {
 	/*
 		Generate the HTML for the footer.
 	*/
-	echo "<p>Maintained by <a href='mailto:linuturk@onitato.com'>Justin Phelps</a> - <a href='https://github.com/Linuturk/Lunch-Scheduler/issues' target='_blank'>Report Issues</a></p>\n";
+	echo "<p class='center'>Maintained by <a href='mailto:linuturk@onitato.com'>Justin Phelps</a> - <a href='https://github.com/Linuturk/Lunch-Scheduler/issues' target='_blank'>Report Issues</a></p>\n";
 	echo "</body>\n";
 	echo "</html>";
 }
