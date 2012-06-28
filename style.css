@@ -27,10 +27,10 @@ td.data {
 	width:80px;
 }
 td.vendor {
-	width:160px;
+	width:200px;
 }
 td.label {
-	text-align:right;
+	text-align:center;
 	font-weight:bold;
 }
 td.center {
