@@ -43,6 +43,7 @@ if (!empty($_POST)) {
 		}
 	} elseif ($action == "Remove") {
 		// Clear from the database for the current day.
+		$id = $_POST["clear"];
 		del_from_schedule($id);
 		}
 }
