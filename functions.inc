@@ -97,7 +97,7 @@ function show_lunchslot($slot, $slots) {
 	$num_rows = mysql_num_rows($result);
 	echo "<tr>\n\t<td class='label'>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
-		echo "\t<td class='data'><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".$row['name']."</td>\n";
+		echo "\t<td class='data'><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".html_entity_decode($row['name'])."</td>\n";
 		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
