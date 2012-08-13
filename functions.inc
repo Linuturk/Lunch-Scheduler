@@ -97,7 +97,7 @@ function show_lunchslot($slot, $slots) {
 	$num_rows = mysql_num_rows($result);
 	echo "<tr>\n\t<td class='label'>$slot</td>\n";
 	while ($row = mysql_fetch_array($result)) {
-		echo "\t<td class='data'><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".html_entity_decode($row['name'])."</td>\n";
+		echo "\t<td class='data'><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".unsanitize($row['name'])."</td>\n";
 		echo "\t<!-- ".$row['id']." -->\n";
 		echo "\t<!-- ".$row['timestamp']." -->\n";
 	}
@@ -116,6 +116,16 @@ function sanitize($string) {
 	$clean = htmlentities($string);
 	$clean = mysql_real_escape_string($clean);
 	return $clean;
+}
+
+function unsanitize($string) {
+	/*
+		Make the string suitable for display to the user.
+		This effectively reverses the sanitize function.
+	*/
+	$dirty = stripslashes($string);
+	$dirty = html_entity_decode($dirty);
+	return $dirty;
 }
 
 ?>
