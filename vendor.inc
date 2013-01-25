@@ -1,2 +1,1 @@
-<h3>Vendors</h3>
-<center><img src="food_schedule.png" /></center>
+<h3><a href="http://realestate.rackspace.com/#food">Food Schedule</a></h3>
