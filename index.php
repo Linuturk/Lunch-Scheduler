@@ -10,6 +10,16 @@ database($db_host, $db_database, $db_user, $db_pass);
 // Set the page title, and the available time slots.
 $title="Lunch Schedule";
 $times = array(
+    0000 => "12:00 AM",
+    0100 => "1:00 AM",
+    0200 => "2:00 AM",
+    0300 => "3:00 AM",
+    0400 => "4:00 AM",
+    0500 => "5:00 AM",
+    0600 => "6:00 AM",
+    0700 => "7:00 AM",
+    0800 => "8:00 AM",
+    0900 => "9:00 AM",
 	1000 => "10:00 AM",
 	1100 => "11:00 AM",
 	1200 => "12:00 PM",
@@ -19,7 +29,11 @@ $times = array(
 	1600 => "4:00 PM",
 	1700 => "5:00 PM",
 	1800 => "6:00 PM",
-	1900 => "7:00 PM"
+	1900 => "7:00 PM",
+    2000 => "8:00 PM",
+    2100 => "9:00 PM",
+    2200 => "10:00 PM",
+    2300 => "11:00 PM"
 );
 
 // Display the HTML headers.
