@@ -40,7 +40,8 @@ $times = array(
 html_header($title);
 
 // Big title to the page.
-echo "<h1>lunch.cldsrvr.com</h1>\n";
+$page_title = $_SERVER['HTTP_HOST'];
+echo "<h1>$page_title</h1>\n";
 
 // If the page hasn't been posted . . . 
 if (!empty($_POST)) {
