@@ -13,11 +13,15 @@ cd example.com.git
 git init --bare
 ```
 
-Add the following to example.com.git/hooks/post-receive:
+Add the following to example.com.git/hooks/post-receive and set it to executable:
 
-```
+```sh
 #!/bin/sh
 GIT_WORK_TREE=/path/to/DocumentRoot git checkout -f master
+```
+
+```bash
+chmod +x example.com.git/hooks/post-receive
 ```
 
 ## MySQL Table
