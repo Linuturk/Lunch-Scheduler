@@ -1,0 +1,3 @@
+# Don't expose local settings
+.htaccess
+database.inc
