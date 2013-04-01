@@ -3,6 +3,14 @@
  * Trying to make things a little easier on the eyes
  */
 
+/*
+ * April Fools Ponies!
+ */
+
+body {
+    background-image:url('https://dl.dropbox.com/u/13160/pics/ponies/derpy-muffin-explosion.png');
+}
+
 h1 {
 	text-align:center;
 }
@@ -13,6 +21,7 @@ p.center {
 	text-align:center;
 }
 table {
+    background-color:#FFFFFF;
 	border-collapse:collapse;
 }
 table.center {
