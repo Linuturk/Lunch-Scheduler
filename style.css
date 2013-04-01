@@ -21,6 +21,7 @@ p.center {
 	text-align:center;
 }
 table {
+    background-color:#000000;
 	border-collapse:collapse;
 }
 table.center {
