@@ -92,7 +92,7 @@ function show_lunchslot($slot, $slots) {
                         - The slot is in a pretty format, according to a specially formatted array.
                         - Slots controls how many table columns are expected.
         */
-        $query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE timestamp > DATE_SUB(NOW(), INTERVAL 5 HOUR) AND lunchslot='$slot'";
+        $query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE timestamp > DATE_SUB(NOW(), INTERVAL 9 HOUR) AND lunchslot='$slot'";
         $result = mysql_query($query) or die(mysql_error());
         $num_rows = mysql_num_rows($result);
         echo "<tr>\n\t<td class='label'>$slot</td>\n";
