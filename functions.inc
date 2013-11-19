@@ -40,7 +40,7 @@ function add_to_schedule($name, $time) {
 		Take a name and time, sanitize the data, and insert into the database.
 	*/
 	$name = sanitize($name);
-	$query = "INSERT INTO schedule(name, lunchslot, date, timestamp) VALUES('$name', '$time', CURDATE(), NOW())";
+	$query = "INSERT INTO schedule(name, lunchslot, date, timestamp) VALUES('$name', '$time', DATE(DATE_SUB(NOW(), INTERVAL 5 HOUR)), NOW())";
 	mysql_query($query) or die(mysql_error());
 }
 
@@ -49,7 +49,7 @@ function del_from_schedule($id) {
 		Take a specific string, and remove it from the database for the current day.
 		This removes all entries from the database, effectively clearing the schedule of that name.
 	*/
-	$query = "DELETE FROM schedule WHERE date=CURDATE() AND id='$id'";
+	$query = "DELETE FROM schedule WHERE date=DATE(DATE_SUB(NOW(), INTERVAL 5 HOUR)) AND id='$id'";
 	mysql_query($query) or die(mysql_error());
 }
 
@@ -92,7 +92,7 @@ function show_lunchslot($slot, $slots) {
 			- The slot is in a pretty format, according to a specially formatted array.
 			- Slots controls how many table columns are expected.
 	*/
-	$query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE date=CURDATE() AND lunchslot='$slot'";
+	$query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE date=DATE(DATE_SUB(NOW(), INTERVAL 5 HOUR)) AND lunchslot='$slot'";
 	$result = mysql_query($query) or die(mysql_error());
 	$num_rows = mysql_num_rows($result);
 	echo "<tr>\n\t<td class='label'>$slot</td>\n";
