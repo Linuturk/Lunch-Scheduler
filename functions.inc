@@ -64,7 +64,7 @@ function show_schedule($lunchslots, $slots=4) {
         echo "<form method='post' action='$self_post' name='schedule'>\n";
         echo "<table class='center'>\n";
         echo "<tr>\n";
-        echo "\t<td class='label'>Times (CDT)</td>\n";
+        echo "\t<td class='label'>Times (Central)</td>\n";
         echo "\t<td><input id='name' type='text' name='name' /></td>\n";
         echo "\t<td><select name='time'>\n";
         foreach ($lunchslots as $value) {
