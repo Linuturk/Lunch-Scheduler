@@ -68,7 +68,7 @@ if (!empty($_POST)) {
 
 show_schedule($times);
 
-//echo "<p class='center'>3 per time slot please.</p>\n";
+echo "<p class='center'>Entries expire after 5 hours (from the time you submit them, not the time of the lunch break.)</p>\n";
 
 // Vendor Schedule
 require_once('vendor.inc');
