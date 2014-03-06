@@ -1,46 +1,46 @@
-<?php                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                             
-date_default_timezone_set("America/Chicago");                                                                                                                                                                                                
-                                                                                                                                                                                                                                             
-function database($host, $database, $username, $password) {                                                                                                                                                                                  
-        /*                                                                                                                                                                                                                                   
-                Simple function to connect to the MySQL database.                                                                                                                                                                            
-                Takes the host, database, username, and password.                                                                                                                                                                            
-        */                                                                                                                                                                                                                                   
-        mysql_connect($host, $username, $password) or die(mysql_error());                                                                                                                                                                    
-        mysql_select_db($database) or die(mysql_error());                                                                                                                                                                                    
-}                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                             
-function html_header($page_title) {                                                                                                                                                                                                          
-        /*                                                                                                                                                                                                                                   
-                Generate the HTML header for the page.                                                                                                                                                                                       
-                Pass the page's title as a string.                                                                                                                                                                                           
-        */                                                                                                                                                                                                                                   
-        echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n";                                                                                              
-        echo "<html>\n";                                                                                                                                                                                                                     
-        echo "<head>\n";                                                                                                                                                                                                                     
-        echo "<title>$page_title</title>\n";                                                                                                                                                                                                 
-        echo "<link rel='stylesheet' type='text/css' href='style.css' />\n";                                                                                                                                                                 
-        echo "<meta http-equiv='refresh' content='60' url='http://lunch.cldsrvr.com/' >\n";                                                                                                                                                  
-        echo "</head>\n";                                                                                                                                                                                                                    
-        echo "<body>\n";                                                                                                                                                                                                                     
-}                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                             
-function html_footer() {                                                                                                                                                                                                                     
-        /*                                                                                                                                                                                                                                   
-                Generate the HTML for the footer.                                                                                                                                                                                            
-        */                                                                                                                                                                                                                                   
-        echo "<p class='center'>Maintained by <a href='mailto:linuturk@onitato.com'>Justin Phelps</a> - <a href='https://github.com/Linuturk/Lunch-Scheduler/issues' target='_blank'>Report Issues</a></p>\n";                               
+<?php
+
+date_default_timezone_set("America/Chicago");
+
+function database($host, $database, $username, $password) {
+        /*
+                Simple function to connect to the MySQL database.
+                Takes the host, database, username, and password.
+        */
+        mysql_connect($host, $username, $password) or die(mysql_error());
+        mysql_select_db($database) or die(mysql_error());
+}
+
+function html_header($page_title) {
+        /*
+                Generate the HTML header for the page.
+                Pass the page's title as a string.
+        */
+        echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n";
+        echo "<html>\n";
+        echo "<head>\n";
+        echo "<title>$page_title</title>\n";
+        echo "<link rel='stylesheet' type='text/css' href='style.css' />\n";
+       // echo "<meta http-equiv='refresh' content='60' url='http://lunch.cybernixon.net/' >\n";
+        echo "</head>\n";
+        echo "<body>\n";
+}
+
+function html_footer() {
+        /*
+                Generate the HTML for the footer.
+        */
+        echo "<p class='center'>Maintained by <a href='mailto:linuturk@onitato.com'>Justin Phelps</a> - <a href='https://github.com/Linuturk/Lunch-Scheduler/issues' target='_blank'>Report Issues</a></p>\n";
         echo "</body>\n";
         echo "</html>";
 }
 
-function add_to_schedule($name, $time) {
+function add_to_schedule($name, $time, $role) {
         /*
                 Take a name and time, sanitize the data, and insert into the database.
         */
         $name = sanitize($name);
-        $query = "INSERT INTO schedule(name, lunchslot, date, timestamp) VALUES('$name', '$time', DATE(DATE_SUB(NOW(), INTERVAL 5 HOUR)), NOW())";
+        $query = "INSERT INTO schedule(name, lunchslot, role, date, timestamp) VALUES('$name', '$time', '$role', DATE(DATE_SUB(NOW(), INTERVAL 5 HOUR)), NOW())";
         mysql_query($query) or die(mysql_error());
 }
 
@@ -53,7 +53,7 @@ function del_from_schedule($id) {
         mysql_query($query) or die(mysql_error());
 }
 
-function show_schedule($lunchslots, $slots=4) {
+function show_schedule($lunchslots, $roles, $slots=4) {
         /*
                 Show the current schedule.
                 Takes two arguments:
@@ -71,10 +71,15 @@ function show_schedule($lunchslots, $slots=4) {
                 echo "\t\t<option value='$value'>$value</option>\n";
         }
         echo "\t</select></td>\n";
+        echo "\t<td><select name='role'>\n";
+        foreach ($roles as $role => $image) {
+            echo "\t\t<option value='$role'>$role</option>\n";
+        }
+        echo "\t</select></td>\n";
         echo "\t<td class='center'><input type='submit' name='submit' value='Add' /></td>\n";
         echo "</tr>\n";
         foreach ($lunchslots as $value) {
-                show_lunchslot($value, $slots);
+                show_lunchslot($value, $slots, $roles);
         }
         echo "</table>\n";
         echo "<p class='center'>\n";
@@ -84,7 +89,7 @@ function show_schedule($lunchslots, $slots=4) {
         echo "</form>\n";
 }
 
-function show_lunchslot($slot, $slots) {
+function show_lunchslot($slot, $slots, $roles) {
         /*
                 This function pulls the data out of the database for a particular lunch slot, and displays a table
                 cell with this information.
@@ -92,15 +97,17 @@ function show_lunchslot($slot, $slots) {
                         - The slot is in a pretty format, according to a specially formatted array.
                         - Slots controls how many table columns are expected.
         */
-        $query = "SELECT id, name, lunchslot, date, timestamp FROM schedule WHERE timestamp > DATE_SUB(NOW(), INTERVAL 9 HOUR) AND lunchslot='$slot'";
+        $query = "SELECT id, name, lunchslot, role, date, timestamp FROM schedule WHERE timestamp > DATE_SUB(NOW(), INTERVAL 9 HOUR) AND lunchslot='$slot'";
         $result = mysql_query($query) or die(mysql_error());
         $num_rows = mysql_num_rows($result);
         echo "<tr>\n\t<td class='label'>$slot</td>\n";
         while ($row = mysql_fetch_array($result)) {
-                echo "\t<td class='data'><input type='radio' name='clear' value='".$row['id']."' />&nbsp;".unsanitize($row['name'])."</td>\n";
+                echo "\t<td class='data'><input type='radio' name='clear' value='" . $row['id'] . "' />&nbsp;" . unsanitize($row['name']);
+                echo "\t<img alt='" . $row['role'] . "' src='" . $roles[$row['role']] . "' />\n";
                 echo "\t<!-- ".$row['id']." -->\n";
                 echo "\t<!-- ".$row['timestamp']." -->\n";
                 echo "\t<!-- ".$row['date']." -->\n";
+                echo "\t</td>\n";
         }
         while ($num_rows < $slots) {
                 echo "\t<td class='data'>&nbsp;</td>\n";
