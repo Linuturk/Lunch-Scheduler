@@ -64,19 +64,19 @@ function show_schedule($lunchslots, $roles, $slots=4) {
         echo "<form method='post' action='$self_post' name='schedule'>\n";
         echo "<table class='center schedule'>\n";
         echo "<tr>\n";
-        echo "\t<td class='label'>Times (Central)</td>\n";
-        echo "\t<td><input id='name' type='text' name='name' /></td>\n";
-        echo "\t<td><select name='time'>\n";
+        echo "\t<th class='label'>Times (Central)</th>\n";
+        echo "\t<th><input id='name' type='text' name='name' /></th>\n";
+        echo "\t<th><select name='time'>\n";
         foreach ($lunchslots as $value) {
                 echo "\t\t<option value='$value'>$value</option>\n";
         }
-        echo "\t</select></td>\n";
-        echo "\t<td><select name='role'>\n";
+        echo "\t</select></th>\n";
+        echo "\t<th><select name='role'>\n";
         foreach ($roles as $role => $image) {
             echo "\t\t<option value='$role'>$role</option>\n";
         }
-        echo "\t</select></td>\n";
-        echo "\t<td class='center'><input type='submit' name='submit' value='Add' /></td>\n";
+        echo "\t</select></th>\n";
+        echo "\t<th class='center'><input type='submit' name='submit' value='Add' /></th>\n";
         echo "</tr>\n";
         foreach ($lunchslots as $value) {
                 show_lunchslot($value, $slots, $roles);
