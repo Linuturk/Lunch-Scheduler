@@ -21,7 +21,7 @@ function html_header($page_title) {
         echo "<head>\n";
         echo "<title>$page_title</title>\n";
         echo "<link rel='stylesheet' type='text/css' href='style.css' />\n";
-        echo "<meta http-equiv='refresh' content='60' url='http://lunch.cldsrvr.net/' >\n";
+//        echo "<meta http-equiv='refresh' content='60' url='http://lunch.cldsrvr.net/' >\n";
         echo "</head>\n";
         echo "<body>\n";
 }
@@ -62,7 +62,7 @@ function show_schedule($lunchslots, $roles, $slots=4) {
         */
         $self_post = $_SERVER['PHP_SELF'];
         echo "<form method='post' action='$self_post' name='schedule'>\n";
-        echo "<table class='center'>\n";
+        echo "<table class='center schedule'>\n";
         echo "<tr>\n";
         echo "\t<td class='label'>Times (Central)</td>\n";
         echo "\t<td><input id='name' type='text' name='name' /></td>\n";
@@ -81,6 +81,13 @@ function show_schedule($lunchslots, $roles, $slots=4) {
         foreach ($lunchslots as $value) {
                 show_lunchslot($value, $slots, $roles);
         }
+	echo "<tr>\n";
+	foreach ($roles as $role => $image) {
+		echo "\t<td class='role-icon-key'>";
+		echo $role . "<img class='role-icon' alt='' src='" . $image . "' />";
+		echo "\t</td>";
+	}
+	echo "</tr>\n";
         echo "</table>\n";
         echo "<p class='center'>\n";
         echo "<input id='submit' type='submit' name='submit' value='Remove' />\n";
@@ -102,15 +109,18 @@ function show_lunchslot($slot, $slots, $roles) {
         $num_rows = mysql_num_rows($result);
         echo "<tr>\n\t<td class='label'>$slot</td>\n";
         while ($row = mysql_fetch_array($result)) {
-                echo "\t<td class='data'><input type='radio' name='clear' value='" . $row['id'] . "' />&nbsp;" . unsanitize($row['name']);
-                echo "\t<img alt='" . $row['role'] . "' src='" . $roles[$row['role']] . "' />\n";
-                echo "\t<!-- ".$row['id']." -->\n";
-                echo "\t<!-- ".$row['timestamp']." -->\n";
-                echo "\t<!-- ".$row['date']." -->\n";
+                echo "\t<td class='data'><input type='radio' name='clear' value='" . $row['id'] . "' />&nbsp;" ;
+		echo "<span title='" . $row['id'] . "'>" . unsanitize($row['name']) . "</span>";
+		if ($row['role']) {
+                	echo "\t\t<img class='role-icon' alt='" . $row['role'] . "' src='" . $roles[$row['role']] . "' />\n"; 
+		}
+                echo "\t\t<!-- id: " . $row['id'] . " -->\n";
+                echo "\t\t<!-- timestamp: " . $row['timestamp'] . " -->\n";
+                echo "\t\t<!-- date: " . $row['date'] . " -->\n";
                 echo "\t</td>\n";
         }
         while ($num_rows < $slots) {
-                echo "\t<td class='data'>&nbsp;</td>\n";
+                echo "\t<td class='data'></td>\n";
                 $num_rows++;
         }
         echo "</tr>\n";
