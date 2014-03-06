@@ -21,7 +21,7 @@ function html_header($page_title) {
         echo "<head>\n";
         echo "<title>$page_title</title>\n";
         echo "<link rel='stylesheet' type='text/css' href='style.css' />\n";
-//        echo "<meta http-equiv='refresh' content='60' url='http://lunch.cldsrvr.net/' >\n";
+        echo "<meta http-equiv='refresh' content='60' url='http://" . $_SERVER['HTTP_HOST'] . "' >\n";
         echo "</head>\n";
         echo "<body>\n";
 }
@@ -49,7 +49,7 @@ function del_from_schedule($id) {
                 Take a specific string, and remove it from the database for the current day.
                 This removes all entries from the database, effectively clearing the schedule of that name.
         */
-        $query = "DELETE FROM schedule WHERE date=DATE(DATE_SUB(NOW(), INTERVAL 5 HOUR)) AND id='$id'";
+        $query = "DELETE FROM schedule WHERE id='$id'";
         mysql_query($query) or die(mysql_error());
 }
 
@@ -109,8 +109,8 @@ function show_lunchslot($slot, $slots, $roles) {
         $num_rows = mysql_num_rows($result);
         echo "<tr>\n\t<td class='label'>$slot</td>\n";
         while ($row = mysql_fetch_array($result)) {
-                echo "\t<td class='data'><input type='radio' name='clear' value='" . $row['id'] . "' />&nbsp;" ;
-		echo "<span title='" . $row['id'] . "'>" . unsanitize($row['name']) . "</span>";
+                echo "\t<td class='data'><input type='radio' name='clear' value='" . $row['id'] . "' />" ;
+		echo unsanitize($row['name']);
 		if ($row['role']) {
                 	echo "\t\t<img class='role-icon' alt='" . $row['role'] . "' src='" . $roles[$row['role']] . "' />\n"; 
 		}

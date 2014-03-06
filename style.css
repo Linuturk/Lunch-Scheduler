@@ -9,33 +9,44 @@ h1 {
 h3 {
 	text-align:center;
 }
+img.role-icon {
+	padding-left:3px;
+}
 p.center {
 	text-align:center;
 }
 table {
-    background-color:#FFFFFF;
+	background-color:#FFFFFF;
+	border:1px solid black;
 	border-collapse:collapse;
+	width:50%;
 }
 table.center {
 	margin-left:auto;
 	margin-right:auto;
 }
-table, td, th {
+td, th {
 	border:1px solid black;
 	padding:5px;
+	width:20%;
+}
+td.center {
+	text-align:center;
 }
 td.data {
-	width:80px;
-}
-td.vendor {
-	width:200px;
+/*	margin-left:10px;*/
+/*	width:80px;*/
+	white-space:nowrap;
 }
 td.label {
 	text-align:center;
 	font-weight:bold;
 }
-td.center {
+td.role-icon-key{
 	text-align:center;
+}
+td.vendor {
+	width:200px;
 }
 #name {
 	width:75px;
