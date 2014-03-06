@@ -21,7 +21,7 @@ function html_header($page_title) {
         echo "<head>\n";
         echo "<title>$page_title</title>\n";
         echo "<link rel='stylesheet' type='text/css' href='style.css' />\n";
-       // echo "<meta http-equiv='refresh' content='60' url='http://lunch.cybernixon.net/' >\n";
+        echo "<meta http-equiv='refresh' content='60' url='http://lunch.cldsrvr.net/' >\n";
         echo "</head>\n";
         echo "<body>\n";
 }
