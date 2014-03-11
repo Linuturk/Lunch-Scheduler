@@ -29,5 +29,5 @@ chmod +x example.com.git/hooks/post-receive
 Here is the expected table format in MySQL:
 
 ```mysql
-create table schedule(id int not null auto_increment, primary key(id), name varchar(50) not null, lunchslot varchar(30) not null, date date not null, timestamp timestamp not null);
+create table schedule(id int not null auto_increment, primary key(id), name varchar(50) not null, lunchslot varchar(30) not null, role varchar(30), date date not null, timestamp timestamp not null);
 ```
