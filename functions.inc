@@ -9,7 +9,7 @@ function database($host, $database, $username, $password) {
         */
         mysql_connect($host, $username, $password) or die(mysql_error());
         mysql_select_db($database) or die(mysql_error());
-	$val = mysql_query('SELECT 1 FROM ``');
+	$val = mysql_query('SELECT 1 FROM `schedule`');
 	if ($val !== FALSE) {
 		// Table exists, do nothing.
 	} else {
