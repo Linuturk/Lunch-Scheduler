@@ -26,7 +26,7 @@ chmod +x example.com.git/hooks/post-receive
 
 ## MySQL Table
 
-Here is the expected table format in MySQL:
+Here is the expected table format in MySQL. This is now created automatically if it doesn't exist.
 
 ```mysql
 create table schedule(id int not null auto_increment, primary key(id), name varchar(50) not null, lunchslot varchar(30) not null, role varchar(30), date date not null, timestamp timestamp not null);
