@@ -15,6 +15,7 @@ function database($host, $database, $username, $password) {
 	} else {
 		$query = "CREATE TABLE schedule(id int not null auto_increment, primary key(id), name varchar(50) not null, lunchslot varchar(30) no null, role varchar(30), date date not null, timestamp timestamp not null)";
 		mysql_query($query) or die(mysql_error());
+	}
 }
 
 function html_header($page_title) {
